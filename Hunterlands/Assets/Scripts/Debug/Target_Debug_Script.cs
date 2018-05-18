@@ -11,8 +11,8 @@ public class Target_Debug_Script : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    myCanvas = Instantiate(myCanvas, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
-    myCanvas.transform.parent = transform;
+    myCanvas = Instantiate(myCanvas, transform, false);
+    myCanvas.transform.position += Vector3.up * 1.5f;
 	}
 	
 	// Update is called once per frame
@@ -28,6 +28,7 @@ public class Target_Debug_Script : MonoBehaviour {
   public void TriggerHitInfo(int damage){
     print("Object hit!");
     myCanvas.transform.Find("Text").GetComponent<Text>().text = damage.ToString();
-    counter = 3.0f;
+    counter = 1.0f;
   }
+  
 }
